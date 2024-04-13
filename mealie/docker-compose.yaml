@@ -1,0 +1,15 @@
+mealie:
+    restart: unless-stopped
+    image: ghcr.io/mealie-recipes/mealie:latest
+    ports:
+      - 9925:9000
+    volumes:
+      - ./mealie-data:/app/data/
+    environment:
+      - "ALLOW_SIGNUP: true"
+      - "PUID: 1000"
+      - "PGID: 1000"
+      - "TZ: America/Chicago"
+      - "MAX_WORKERS: 1"
+      - "WEB_CONCURRENCY: 1"
+      - "BASE_URL: https://mealie.hinsonbrekke.com"
