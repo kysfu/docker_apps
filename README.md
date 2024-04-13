@@ -8,7 +8,7 @@ Navigate to /home/user/
 
 Run:
 
-`wget https://github.com/kysfu/docker_apps/blob/f8bbdb242946b85f99fe6b246b13187ac238a758/dockge/docker-compose.yaml`
+`wget https://raw.githubusercontent.com/kysfu/docker_apps/f8bbdb242946b85f99fe6b246b13187ac238a758/dockge/docker-compose.yaml`
 
 `sudo docker compose up -d`
 
