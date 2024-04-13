@@ -1,0 +1,14 @@
+services:
+  tautulli:
+    container_name: tautulli
+    image: ghcr.io/hotio/tautulli
+    ports:
+      - "8181:8181"
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - UMASK=002
+      - TZ=Etc/UTC
+      - WEBUI_PORTS=8181/tcp,8181/udp
+    volumes:
+      - /home/kysfu/tautulli/config:/config
