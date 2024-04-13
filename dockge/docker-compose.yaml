@@ -1,6 +1,5 @@
 services:
   dockge:
-      container_name: dockge
     image: louislam/dockge:latest
     restart: unless-stopped
     ports:
