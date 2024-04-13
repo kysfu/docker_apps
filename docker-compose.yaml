@@ -1,0 +1,75 @@
+services:
+  flaresolverr:
+    image: ghcr.io/flaresolverr/flaresolverr:latest
+    container_name: flaresolverr
+    ports:
+      - 8191:8191
+    restart: unless-stopped
+    environment:
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+      - LOG_HTML=${LOG_HTML:-false}
+      - CAPTCHA_SOLVER=${CAPTCHA_SOLVER:-none}
+      - TZ=America/Chicago
+  mealie:
+    restart: unless-stopped
+    image: ghcr.io/mealie-recipes/mealie:latest
+    ports:
+      - 9925:9000
+    volumes:
+      - /home/kysfu/mealie/data:/app/data/
+    environment:
+      - "ALLOW_SIGNUP: true"
+      - "PUID: 1000"
+      - "PGID: 1000"
+      - "TZ: America/Chicago"
+      - "MAX_WORKERS: 1"
+      - "WEB_CONCURRENCY: 1"
+      - "BASE_URL: https://mealie.hinsonbrekke.com"
+  overseer:
+    restart: unless-stopped
+    image: ghcr.io/hotio/overseerr:latest
+    ports:
+      - 5055:5055
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - UMASK=002
+      - TZ=America/Chicago
+    volumes:
+      - /home/kysfu/overseer/config:/config
+  prowlarr:
+    restart: unless-stopped
+    image: ghcr.io/hotio/prowlarr:latest
+    ports:
+      - 9696:9696
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - UMASK=002
+      - TZ=America/Chicago
+    volumes:
+      - /home/kysfu/prowlarr/config:/config
+  tautulli:
+    restart: unless-stopped
+    image: ghcr.io/hotio/tautulli
+    ports:
+      - 8181:8181
+    volumes:
+      - /home/kysfu/tautulli/config:/config
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - UMASK=002
+      - TZ=America/Chicago
+      - WEBUI_PORTS=8181/tcp,8181/udp
+  nginx-proxy-manager:
+    restart: unless-stopped
+    image: docker.io/jc21/nginx-proxy-manager:latest
+    ports:
+      - 80:80
+      - 81:81
+      - 443:443
+    volumes:
+      - /home/kysfu/nginx-proxy-manager/data:/data
+      - /home/kysfu/nginx-proxy-manager/letsencrypt:/etc/letsencrypt
+networks: {}
