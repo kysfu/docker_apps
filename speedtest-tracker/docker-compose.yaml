@@ -1,4 +1,6 @@
 services:
+  #username:admin@example.com
+  #password:password
   speedtest-tracker:
     container_name: speedtest-tracker
     ports:
@@ -31,4 +33,4 @@ services:
     volumes:
       - speedtest-db:/var/lib/mysql
 volumes:
-  speedtest-db: null
+  speedtest-db:
