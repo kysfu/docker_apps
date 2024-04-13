@@ -8,6 +8,6 @@ services:
       - PUID=1000
       - PGID=1000
       - UMASK=002
-      - TZ=Etc/UTC
+      - TZ=America/Chicago
     volumes:
       - /home/kysfu/prowlarr/config:/config
