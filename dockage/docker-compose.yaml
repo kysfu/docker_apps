@@ -7,6 +7,6 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /home/kysfu/docker/:/app/data
-      - /home/kysfu/:/home/kysfu/
+      - /home/kysfu/stacks:/home/kysfu/stacks
     environment:
-      - DOCKGE_STACKS_DIR=/home/kysfu/
+      - DOCKGE_STACKS_DIR=/home/kysfu/stacks
