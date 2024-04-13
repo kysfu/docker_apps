@@ -1,5 +1,6 @@
 services:
   dockge:
+      container_name: tautulli
     image: louislam/dockge:latest
     restart: unless-stopped
     ports:
