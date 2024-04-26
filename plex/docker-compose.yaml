@@ -10,8 +10,8 @@ services:
       - VERSION=docker
     volumes:
       - /home/kysfu/plex/config:/config
-      - /home/kysfu/plex/transcodetemp:/transcode
+      - /home/kysfu/plex/transcode:/transcode #transcode temp directory
       - /media/12TB3:/12TB3
     restart: unless-stopped
     devices:
-      - /dev/dri:/dev/dri
+      - /dev/dri:/dev/dri #passthrough for Intel QuickSync
