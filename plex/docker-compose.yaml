@@ -8,7 +8,6 @@ services:
       - PGID=1000
       - TZ=Etc/UTC
       - VERSION=docker
-      - PLEX_CLAIM= #optional
     volumes:
       - /home/kysfu/plex/config:/config
       - /media/12TB3:/12TB3
