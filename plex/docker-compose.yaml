@@ -10,6 +10,7 @@ services:
       - VERSION=docker
     volumes:
       - /home/kysfu/plex/config:/config
+      - /home/kysfu/plex/transcodetemp:/transcode
       - /media/12TB3:/12TB3
     restart: unless-stopped
     devices:
