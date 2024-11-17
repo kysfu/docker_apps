@@ -1,0 +1,15 @@
+version: "3.3"
+services:
+  mkvtoolnix:
+    container_name: mkvtoolnix
+    ports:
+      - 5801:5801
+    volumes:
+      - /home/kysfu/mkvtoolnix/config:/config:rw
+      - /media/14TB:/storage:rw
+    image: jlesage/mkvtoolnix
+    restart: unless-stopped
+    environment:
+      - WEB_LISTENING_PORT=5801
+      - VNC_LISTENING_PORT=-1
+networks: {}
