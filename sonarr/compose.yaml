@@ -1,0 +1,21 @@
+services:
+  sonarr:
+    container_name: sonarr
+    image: ghcr.io/hotio/sonarr
+    ports:
+      - 8989:8989
+    restart: unless-stopped
+    volumes:
+      - /home/kysfu/sonarr/config:/config
+      - /media/14TB/RDTDownloadCache:/RDTDownloadCache
+      - /media/4TB:/data/4TB
+      - /media/8TB:/data/8TB
+      - /media/8TB2:/data/8TB2
+      - /media/10TB:/data/10TB
+      - /media/10TB2:/data/10TB2
+      - /media/12TB:/data/12TB
+      - /media/12TB2:/data/12TB2
+      - /media/12TB3:/data/12TB3
+      - /media/14TB:/data/14TB
+      - /media/14TB2:/data/14TB2
+networks: {}
