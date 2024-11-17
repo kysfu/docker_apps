@@ -1,0 +1,11 @@
+services:
+  sabnzbd:
+    image: lscr.io/linuxserver/sabnzbd:latest
+    container_name: sabnzbd
+    volumes:
+      - /media/14TB/RDTDownloadCache:/RDTDownloadCache
+      - /home/kysfu/sabnzbd/config:/config
+    ports:
+      - 8080:8080
+    restart: unless-stopped
+networks: {}
