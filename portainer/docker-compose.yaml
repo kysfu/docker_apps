@@ -3,7 +3,7 @@ services:
     ports:
       - 9000:9000
     container_name: portainer
-    restart: always
+    restart: unless-stopped
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /home/kysfu/portainer/data:/data
