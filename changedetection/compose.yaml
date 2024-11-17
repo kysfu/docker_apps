@@ -1,0 +1,13 @@
+version: "3.3"
+services:
+  changedetection.io:
+    restart: always
+    ports:
+      - 5000:5000
+    volumes:
+      - /home/kysfu/changedetection/data:/datastore
+    container_name: changedetection.io
+    image: dgtlmoon/changedetection.io
+volumes:
+  datastore-volume: {}
+networks: {}
