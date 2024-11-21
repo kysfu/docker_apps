@@ -8,6 +8,6 @@ services:
     restart: unless-stopped
     environment:
       - WATCHTOWER_NOTIFICATIONS=shoutrrr
-      - WATCHTOWER_NOTIFICATION_URL=telegram://7842679587:AAFBqfCngc3MIrqQWl3voGfffoUyvEAcwTA@telegram/?channels=5835308973
+      - WATCHTOWER_NOTIFICATION_URL=telegram:TGRAMTOKEN
       - WATCHTOWER_CLEANUP=true # optional. Remove old images after updating
 networks: {}
