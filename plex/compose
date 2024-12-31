@@ -1,0 +1,16 @@
+services:
+  plex:
+    image: lscr.io/linuxserver/plex:latest
+    container_name: plex
+    network_mode: host
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - VERSION=docker
+    volumes:
+      - /home/kysfu/plex/config:/config
+      - /home/kysfu/plex/transcode:/transcode #transcode temp directory
+    restart: unless-stopped
+    devices:
+      - /dev/dri:/dev/dri #passthrough for Intel QuickSync
